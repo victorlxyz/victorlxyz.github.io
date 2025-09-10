@@ -1,1 +1,79 @@
-hello world
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home Assistant</title>
+  <style>
+    .lang { display: none; }
+    .active { display: block; }
+  </style>
+  <script>
+    function switchLang(lang) {
+      document.querySelectorAll('.lang').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.lang-' + lang).forEach(el => el.classList.add('active'));
+    }
+  </script>
+</head>
+<body>
+  <button onclick="switchLang('en')">English</button>
+  <button onclick="switchLang('fr')">Français</button>
+
+  <div class="lang lang-en active">
+
+<h2>Music! (Music Assistant, Jukebox, light sync…)</h2>
+
+<li><a href="en/articles/ha_yamaha.html"><h3>Making my 2010 amp (Yamaha R-S300) a bit smarter</h3></a></li>
+
+<h3>My current Music Assistant setup</h3>
+
+<h3>Music dashboard with Genius lyrics, player queue and Jukebox</h3>
+
+<h3>LedFX: real-time LED strip music visualization</h3>
+
+<h2>Lights and plugs</h2>
+
+<h3>Automating lights with ESP32 sensors, Adaptive Lighting and scenes</h3>
+
+<h3>DIY Ambilight with WLED and Hyperion</h3>
+
+
+<h1>Misc</h1>
+
+<h3>HASS.Agent and my Stream Dock (not deck) config</h3>
+
+<h3>VoiceMeeter</h3>
+
+<h3>List of automations</h3>
+
+  </div>
+
+  <div class="lang lang-fr">
+
+<h2>Musique ! (Music Assistant, Jukebox, synchro des lumières…)</h2>
+
+<li><a href="fr/articles/ha_yamaha.html"><h3>Rendre mon ampli de 2010 (Yamaha R-S300) un peu plus "smart"</h3></a></li>
+
+<h3>Mon setup Music Assistant en ce moment</h3>
+
+<h3>Dashboard musique avec Genius lyrics, file d'attente et Jukebox</h3>
+
+<h3>LedFX: synchroniser un ruban LED avec la musique</h3>
+
+<h2>Lumières et prises connectées</h2>
+
+<h3>Automatiser les lumières avec des capteurs ESP32, Adaptive Lighting et des scènes</h3>
+
+<h3>Ambilight fait-maison avec WLED et Hyperion</h3>
+
+<h1>Divers</h1>
+
+<h3>HASS.Agent et la config de mon Stream Dock (pas un Stream Deck)</h3>
+
+<h3>VoiceMeeter</h3>
+
+<h3>Liste d'automations</h3>
+
+
+  </div>
+</body>
+</html>
