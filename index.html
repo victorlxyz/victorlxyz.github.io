@@ -4,6 +4,40 @@
   <meta charset="UTF-8">
   <title>Home Assistant</title>
   <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2rem;
+      line-height: 1.6;
+    }
+    nav {
+      margin-bottom: 1.5rem;
+    }
+    button {
+      margin-right: 0.5rem;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      background: #0073e6;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #005bb5;
+    }
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    ul li {
+      margin-bottom: 0.5rem;
+    }
+    a {
+      text-decoration: none;
+      color: #0073e6;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
     .lang { display: none; }
     .active { display: block; }
   </style>
@@ -15,65 +49,57 @@
   </script>
 </head>
 <body>
-  <button onclick="switchLang('en')">English</button>
-  <button onclick="switchLang('fr')">Français</button>
+  <nav>
+    <button onclick="switchLang('en')">English</button>
+    <button onclick="switchLang('fr')">Français</button>
+  </nav>
 
+  <!-- English content -->
   <div class="lang lang-en active">
+    <h2>Music! (Music Assistant, Jukebox, light sync…)</h2>
+    <ul>
+      <li><a href="en/articles/ha_yamaha.html">Making my 2010 amp (Yamaha R-S300) a bit smarter</a></li>
+      <li><a href="#">My current Music Assistant setup</a></li>
+      <li><a href="#">Music dashboard with Genius lyrics, player queue and Jukebox</a></li>
+      <li><a href="#">LedFX: real-time LED strip music visualization</a></li>
+    </ul>
 
-<h2>Music! (Music Assistant, Jukebox, light sync…)</h2>
+    <h2>Lights and plugs</h2>
+    <ul>
+      <li><a href="#">Automating lights with ESP32 sensors, Adaptive Lighting and scenes</a></li>
+      <li><a href="#">DIY Ambilight with WLED and Hyperion</a></li>
+    </ul>
 
-<li><a href="en/articles/ha_yamaha.html"><h3>Making my 2010 amp (Yamaha R-S300) a bit smarter</h3></a></li>
-
-<h3>My current Music Assistant setup</h3>
-
-<h3>Music dashboard with Genius lyrics, player queue and Jukebox</h3>
-
-<h3>LedFX: real-time LED strip music visualization</h3>
-
-<h2>Lights and plugs</h2>
-
-<h3>Automating lights with ESP32 sensors, Adaptive Lighting and scenes</h3>
-
-<h3>DIY Ambilight with WLED and Hyperion</h3>
-
-
-<h1>Misc</h1>
-
-<h3>HASS.Agent and my Stream Dock (not deck) config</h3>
-
-<h3>VoiceMeeter</h3>
-
-<h3>List of automations</h3>
-
+    <h2>Misc</h2>
+    <ul>
+      <li><a href="#">HASS.Agent and my Stream Dock (not deck) config</a></li>
+      <li><a href="#">VoiceMeeter</a></li>
+      <li><a href="#">List of automations</a></li>
+    </ul>
   </div>
 
+  <!-- French content -->
   <div class="lang lang-fr">
+    <h2>Musique ! (Music Assistant, Jukebox, synchro des lumières…)</h2>
+    <ul>
+      <li><a href="fr/articles/ha_yamaha.html">Rendre mon ampli de 2010 (Yamaha R-S300) un peu plus "smart"</a></li>
+      <li><a href="#">Mon setup Music Assistant en ce moment</a></li>
+      <li><a href="#">Dashboard musique avec Genius lyrics, file d'attente et Jukebox</a></li>
+      <li><a href="#">LedFX: synchroniser un ruban LED avec la musique</a></li>
+    </ul>
 
-<h2>Musique ! (Music Assistant, Jukebox, synchro des lumières…)</h2>
+    <h2>Lumières et prises connectées</h2>
+    <ul>
+      <li><a href="#">Automatiser les lumières avec des capteurs ESP32, Adaptive Lighting et des scènes</a></li>
+      <li><a href="#">Ambilight fait-maison avec WLED et Hyperion</a></li>
+    </ul>
 
-<li><a href="fr/articles/ha_yamaha.html"><h3>Rendre mon ampli de 2010 (Yamaha R-S300) un peu plus "smart"</h3></a></li>
-
-<h3>Mon setup Music Assistant en ce moment</h3>
-
-<h3>Dashboard musique avec Genius lyrics, file d'attente et Jukebox</h3>
-
-<h3>LedFX: synchroniser un ruban LED avec la musique</h3>
-
-<h2>Lumières et prises connectées</h2>
-
-<h3>Automatiser les lumières avec des capteurs ESP32, Adaptive Lighting et des scènes</h3>
-
-<h3>Ambilight fait-maison avec WLED et Hyperion</h3>
-
-<h1>Divers</h1>
-
-<h3>HASS.Agent et la config de mon Stream Dock (pas un Stream Deck)</h3>
-
-<h3>VoiceMeeter</h3>
-
-<h3>Liste d'automations</h3>
-
-
+    <h2>Divers</h2>
+    <ul>
+      <li><a href="#">HASS.Agent et la config de mon Stream Dock (pas un Stream Deck)</a></li>
+      <li><a href="#">VoiceMeeter</a></li>
+      <li><a href="#">Liste d'automations</a></li>
+    </ul>
   </div>
 </body>
 </html>

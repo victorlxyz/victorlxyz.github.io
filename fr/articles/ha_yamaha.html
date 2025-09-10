@@ -1,32 +1,50 @@
-<h1>Rendre mon ampli de 2010 (Yamaha R-S300) un peu plus "smart"</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Making my 2010 amp (Yamaha R-S300) a bit smarter</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2rem;
+      line-height: 1.6;
+    }
+    img {
+      margin: 1rem 0;
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+    pre {
+      background: #f4f4f4;
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>Making my 2010 amp (Yamaha R-S300) a bit smarter</h1>
 
-<img src="../images/article1-img1.png" alt="Picture of Yamaha R-S300 amp and remote" width="600">
+  <img src="../images/article1-img1.png" alt="Picture of Yamaha R-S300 amp and remote" width="600">
 
-I'm still using my trusty old amp with two pairs of speakers (one pair in the living room, the other in the kitchen).
-It's connected to my desktop PC (Line 1), an Apple Airport Express 1 (Line 2) and my TV (Tape).
+  <p>
+    I'm still using my trusty old amp with two pairs of speakers (one pair in the living room,
+    the other in the kitchen). It's connected to my desktop PC (Line 1), an Apple Airport Express 1 (Line 2) and my TV (Tape).
+  </p>
 
-I use a Broadlink RM mini 3 (~€24) to control my amp remotely from my Home Assistant dashboard or the Stream Deck on my desk.
-The RM mini 3 acts as an IR remote that I can use to learn commands from my amp's original remote and then send commands using Home Assistant.
-It took me some time to set it up as I tried a few ways that didn't work with this specific model, then I realized that it was much easier to use Home Assistant's developer tools.
+  <p>
+    I use a Broadlink RM mini 3 (~€24) to control my amp remotely from my Home Assistant dashboard or the Stream Deck on my desk.
+    The RM mini 3 acts as an IR remote that I can use to learn commands from my amp's original remote and then send commands using Home Assistant.
+  </p>
 
-Set up the RM mini 3 remote using Broadlink's integration (IR Remote), then go to Developer tools -> Actions and select "Learn command" (remote.learn_command). From there, you have to choose a name for your Device ID (for my amp, I used "amp") and a command to learn (e.g. "volume_down"). Then you can click on "Perform action", grab your amp's remote and press on the volume down button. Home Assistant will learn the command and store it internally (under *config/.storage/broadlink_remote_(id)_codes*, but you don't actually need to access this to use them).
+  <img src="../images/article1-img2.png" alt="Learning a command in HA developer tools" width="600">
 
-<img src="../images/article1-img2.png" alt="Learning a command in HA developer tools" width="600">
+  <p>Set up the RM mini 3 remote using Broadlink's integration ...</p>
 
-
-[This blog post](https://www.bazmac.me/blog/using-broadlink-rm4-pro-with-home-assistant) explains this process in much more detail:
-
-
-
-
-Now, you can use remote.send_command with Device ID: "amp" and command "volume_down" to control your amp from Home Assistant!
-The annoying part is that you have to create scripts for this.
-
-Settings -> Automations & scenes -> Scripts -> Create script (bottom right corner) -> Create new script.
-
-**Amp - Volume Down script** 
-(you can select Edit in YAML and paste the code below):
-```
+  <pre><code class="language-yaml">
 sequence:
   - action: remote.send_command
     target:
@@ -37,10 +55,11 @@ sequence:
 alias: Amp - Volume Down
 description: Amp - Volume Down
 icon: mdi:volume-minus
-```
+  </code></pre>
 
-I've made scripts like this to control my amp and my HDMI Switcher. My HDMI Switcher uses two commands in the same script, as it switches the input for both outputs (HDMI output 1 is my TV, HDMI output 2 is a capture card):
-```
+  <p>Example script for HDMI Switcher:</p>
+
+  <pre><code class="language-yaml">
 sequence:
   - action: remote.send_command
     target:
@@ -52,16 +71,13 @@ sequence:
         - hdmi2_1
 alias: HDMI Switcher - 1
 description: Switches HDMI input to 1
-```
+  </code></pre>
 
-<img src="../images/article1-img3.png" alt="List of scripts with IR commands" width="600">
+  <img src="../images/article1-img3.png" alt="List of scripts with IR commands" width="600">
 
-In my dashboard, I used a Grid card with 4 columns and multiple [button-cards](https://github.com/custom-cards/button-card) to set buttons that allow me to control my amp:
+  <p>Example button-card config:</p>
 
-<img src="../images/article1-img4.png" alt="HA Dashboard with custom button cards" width="600">
-
-The code for each button looks like this:
-```
+  <pre><code class="language-yaml">
 type: custom:button-card
 color_type: card
 color: rgb(210, 166, 172)
@@ -69,20 +85,20 @@ icon: mdi:power
 tap_action:
   action: call-service
   service: script.amp_power
-```
-with some blank cards in between:
-```
-  - type: custom:button-card
-    color_type: blank-card
-  ```
+  </code></pre>
 
-Full code link
+  <p>Blank card example:</p>
 
-We can also use this script in automations, like this:
+  <pre><code class="language-yaml">
+- type: custom:button-card
+  color_type: blank-card
+  </code></pre>
 
-<img src="../images/article1-img5.png" alt="Automation using send command script" width="600">
+  <img src="../images/article1-img4.png" alt="HA Dashboard with custom button cards" width="600">
 
-Similarly, I *could* (haven't gotten to it… yet) use remote commands to switch the HDMI Switch output to HDMI 2 when my PS5 is on, using the PlayStation Network integration https://github.com/JackJPowell/hass-psn or a smart plug (when energy consumption reaches a certain threshold).
-
-Of course, all of this would be completely unnecessary if I had more modern equipment, like a HDMI ARC/e-ARC device, but I felt pretty proud when I used my phone to control my amp from 2010 for the first time!
-
+  <p>
+    Similarly, I *could* (haven't gotten to it… yet) use remote commands to switch
+    the HDMI Switch output to HDMI 2 when my PS5 is on...
+  </p>
+</body>
+</html>
