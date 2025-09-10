@@ -1,34 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   <meta charset="UTF-8">
   <title>Making my 2010 amp (Yamaha R-S300) a bit smarter</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 2rem;
-      line-height: 1.6;
-    }
-    img {
-      margin: 1rem 0;
-      max-width: 100%;
-      height: auto;
-      border-radius: 5px;
-    }
-    pre {
-      background: #f4f4f4;
-      padding: 1rem;
-      border-radius: 5px;
-      overflow-x: auto;
-    }
-  </style>
+  <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
   <h1>Making my 2010 amp (Yamaha R-S300) a bit smarter</h1>
 
-  <img src="../images/article1-img1.png" alt="Picture of Yamaha R-S300 amp and remote" width="600">
+  <img src="../../images/article1-img1.png" alt="Picture of Yamaha R-S300 amp and remote" width="600">
 
   <p>
     I'm still using my trusty old amp with two pairs of speakers (one pair in the living room,
@@ -40,7 +23,7 @@
     The RM mini 3 acts as an IR remote that I can use to learn commands from my amp's original remote and then send commands using Home Assistant.
   </p>
 
-  <img src="../images/article1-img2.png" alt="Learning a command in HA developer tools" width="600">
+  <img src="../../images/article1-img2.png" alt="Learning a command in HA developer tools" width="600">
 
   <p>Set up the RM mini 3 remote using Broadlink's integration ...</p>
 
@@ -73,7 +56,7 @@ alias: HDMI Switcher - 1
 description: Switches HDMI input to 1
   </code></pre>
 
-  <img src="../images/article1-img3.png" alt="List of scripts with IR commands" width="600">
+  <img src="../../images/article1-img3.png" alt="List of scripts with IR commands" width="600">
 
   <p>Example button-card config:</p>
 
@@ -94,7 +77,7 @@ tap_action:
   color_type: blank-card
   </code></pre>
 
-  <img src="../images/article1-img4.png" alt="HA Dashboard with custom button cards" width="600">
+  <img src="../../images/article1-img4.png" alt="HA Dashboard with custom button cards" width="600">
 
   <p>
     Similarly, I *could* (haven't gotten to it… yet) use remote commands to switch
