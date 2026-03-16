@@ -50,7 +50,6 @@ actions:
       entity_id: script.amp_line_2
     data: {}
 mode: single
-
 ```
 
 Example of a Bubble card (sub-buttons type) with Tap action: Perform action - Toggle Script
@@ -437,5 +436,4 @@ cards:
       .bubble-sub-button-icon {
           --mdc-icon-size: 32px !important;
         }
-
 ```
