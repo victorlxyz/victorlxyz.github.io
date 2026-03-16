@@ -30,7 +30,7 @@ function switchLang(lang) {
 
 <div class="lang lang-en active">
 
-<h1>victorlxyz articles</h2>
+<h1>victorlxyz articles</h1>
 
 <ul>
 {% for article in site.articles_en %}
@@ -41,13 +41,14 @@ function switchLang(lang) {
 </ul>
 
 </div>
+{{ site.articles_en | size }}
 
 
 <!-- FRENCH -->
 
 <div class="lang lang-fr">
 
-<h1>articles victorlxyz</h2>
+<h1>articles victorlxyz</h1>
 
 <ul>
 {% for article in site.articles_fr %}
