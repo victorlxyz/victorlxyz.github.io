@@ -1,100 +1,113 @@
-/* Global */
+/* Base */
+
 body {
   font-family: 'Roboto', sans-serif;
+  background: #0f1115;
+  color: #e6e6e6;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Center content */
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+article, .lang {
   max-width: 900px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-  line-height: 1.7;
-  color: #333;
-  background: #fafafa;
+  width: 100%;
+  padding: 40px 24px;
 }
 
 /* Headings */
-h1, h2, h3 {
-  margin-top: 1.5rem;
-  font-weight: 500;
-  color: #222;
-}
+
 h1 {
   font-size: 2rem;
-  border-bottom: 2px solid #0073e6;
-  padding-bottom: 0.3rem;
+  margin-top: 0;
 }
+
 h2 {
-  font-size: 1.5rem;
   margin-top: 2rem;
-  color: #0073e6;
-}
-h3 {
-  font-size: 1.2rem;
-  margin-top: 1rem;
-  color: #444;
+  border-bottom: 1px solid #333;
+  padding-bottom: 6px;
 }
 
-/* Navigation */
-nav {
-  margin-bottom: 1.5rem;
-}
-nav button {
-  margin-right: 0.5rem;
-  padding: 0.6rem 1.2rem;
-  border: none;
-  border-radius: 6px;
-  background: #0073e6;
-  color: white;
-  cursor: pointer;
-  font-size: 0.95rem;
-  transition: background 0.2s ease;
-}
-nav button:hover {
-  background: #005bb5;
-}
+/* Links */
 
-/* Lists */
-ul {
-  list-style-type: none;
-  padding-left: 0;
-}
-ul li {
-  margin-bottom: 0.5rem;
-}
 a {
+  color: #6ab0ff;
   text-decoration: none;
-  color: #0073e6;
-  font-weight: 500;
 }
+
 a:hover {
   text-decoration: underline;
 }
 
+/* Lists */
+
+ul {
+  padding-left: 20px;
+}
+
 /* Images */
+
 img {
-  display: block;
-  margin: 1.5rem auto;
   max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  border-radius: 6px;
+  margin: 20px 0;
 }
 
 /* Code blocks */
+
 pre {
-  background: #272822;
-  color: #f8f8f2;
-  padding: 1rem;
+  background: #1b1e24;
+  padding: 16px;
   border-radius: 6px;
   overflow-x: auto;
-  margin: 1rem 0;
-}
-code {
-  font-family: "Fira Code", "Roboto Mono", monospace;
-  font-size: 0.9rem;
 }
 
-/* Language toggle */
+code {
+  font-family: monospace;
+}
+
+/* Inline code */
+
+p code {
+  background: #1b1e24;
+  padding: 3px 6px;
+  border-radius: 4px;
+}
+
+/* Navigation */
+
+nav {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+nav button {
+  background: #1b1e24;
+  color: #ddd;
+  border: 1px solid #333;
+  padding: 6px 10px;
+  margin-left: 6px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+nav button:hover {
+  background: #2a2e36;
+}
+
+/* Language switch */
+
 .lang {
   display: none;
 }
-.active {
+
+.lang.active {
   display: block;
 }
