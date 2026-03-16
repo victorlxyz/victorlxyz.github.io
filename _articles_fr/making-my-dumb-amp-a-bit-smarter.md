@@ -60,7 +60,8 @@ Example of a Bubble card (sub-buttons type) with Tap action: Perform action - To
 ![](/images/articles/Pasted image 20260214073649.png)
 
 
-```type: custom:bubble-card
+```
+type: custom:bubble-card
 card_type: sub-buttons
 button_type: name
 sub_button:
@@ -86,12 +87,13 @@ tap_action:
     entity_id: script.amp_power
 button_action: {}
 rows: 0.938
-
 ```
+
 
 Example of a custom button card:
 
-```type: custom:button-card
+```
+type: custom:button-card
 color_type: card
 color: rgb(210, 166, 172)
 icon: mdi:power
