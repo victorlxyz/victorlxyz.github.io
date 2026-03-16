@@ -1,5 +1,6 @@
 ---
 title: Making my dumb amp a bit smarter
+layout: article
 ---
 Just a bit of context: I've decided to write a little bit about what I'm doing with Home Assistant as a way to reminisce about how and why I've done certain things in such a way. Maybe it could be useful to a bunch of people? I don't know.
 
