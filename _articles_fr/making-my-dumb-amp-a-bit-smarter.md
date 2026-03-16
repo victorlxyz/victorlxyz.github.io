@@ -1,4 +1,6 @@
-
+---
+title: Making my dumb amp a bit smarter
+---
 Just a bit of context: I've decided to write a little bit about what I'm doing with Home Assistant as a way to reminisce about how and why I've done certain things in such a way. Maybe it could be useful to a bunch of people? I don't know.
 
 Since I've moved, I've been slowly rebuilding my dashboard from the ground up using mostly (if not exclusively) [Bubble Card](https://github.com/Clooos/Bubble-Card).
