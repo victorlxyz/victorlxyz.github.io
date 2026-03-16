@@ -1,69 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Home Assistant</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-  <script>
-    function switchLang(lang) {
-      document.querySelectorAll('.lang').forEach(el => el.classList.remove('active'));
-      document.querySelectorAll('.lang-' + lang).forEach(el => el.classList.add('active'));
-    }
-  </script>
+<meta charset="UTF-8">
+<title>Home Assistant Notes</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<script>
+function switchLang(lang) {
+  document.querySelectorAll('.lang').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.lang-' + lang).forEach(el => el.classList.add('active'));
+}
+</script>
+
 </head>
+
 <body>
-  <nav>
-    <button onclick="switchLang('en')">English</button>
-    <button onclick="switchLang('fr')">Français</button>
-  </nav>
 
-  <!-- English content -->
-  <div class="lang lang-en active">
-    <h2>Music! (Music Assistant, Jukebox, light sync…)</h2>
-    <ul>
-      <li><a href="en/articles/ha_yamaha.html">Making my 2010 amp (Yamaha R-S300) a bit smarter</a></li>
-      <li><a href="#">My current Music Assistant setup</a></li>
-      <li><a href="#">Music dashboard with Genius lyrics, player queue and Jukebox</a></li>
-      <li><a href="#">LedFX: real-time LED strip music visualization</a></li>
-    </ul>
+<nav>
+<button onclick="switchLang('en')">English</button>
+<button onclick="switchLang('fr')">Français</button>
+</nav>
 
-    <h2>Lights and plugs</h2>
-    <ul>
-      <li><a href="#">Automating lights with ESP32 sensors, Adaptive Lighting and scenes</a></li>
-      <li><a href="#">DIY Ambilight with WLED and Hyperion</a></li>
-    </ul>
 
-    <h2>Misc</h2>
-    <ul>
-      <li><a href="#">HASS.Agent and my Stream Dock (not deck) config</a></li>
-      <li><a href="#">VoiceMeeter</a></li>
-      <li><a href="#">List of automations</a></li>
-    </ul>
-  </div>
+<!-- ENGLISH -->
 
-  <!-- French content -->
-  <div class="lang lang-fr">
-    <h2>Musique ! (Music Assistant, Jukebox, synchro des lumières…)</h2>
-    <ul>
-      <li><a href="fr/articles/ha_yamaha.html">Rendre mon ampli de 2010 (Yamaha R-S300) un peu plus "smart"</a></li>
-      <li><a href="#">Mon setup Music Assistant en ce moment</a></li>
-      <li><a href="#">Dashboard musique avec Genius lyrics, file d'attente et Jukebox</a></li>
-      <li><a href="#">LedFX: synchroniser un ruban LED avec la musique</a></li>
-    </ul>
+<div class="lang lang-en active">
 
-    <h2>Lumières et prises connectées</h2>
-    <ul>
-      <li><a href="#">Automatiser les lumières avec des capteurs ESP32, Adaptive Lighting et des scènes</a></li>
-      <li><a href="#">Ambilight fait-maison avec WLED et Hyperion</a></li>
-    </ul>
+<h2>Music</h2>
 
-    <h2>Divers</h2>
-    <ul>
-      <li><a href="#">HASS.Agent et la config de mon Stream Dock (pas un Stream Deck)</a></li>
-      <li><a href="#">VoiceMeeter</a></li>
-      <li><a href="#">Liste d'automations</a></li>
-    </ul>
-  </div>
+<ul>
+{% for article in site.articles_en %}
+<li>
+<a href="{{ article.url }}">{{ article.title }}</a>
+</li>
+{% endfor %}
+</ul>
+
+</div>
+
+
+<!-- FRENCH -->
+
+<div class="lang lang-fr">
+
+<h2>Musique</h2>
+
+<ul>
+{% for article in site.articles_fr %}
+<li>
+<a href="{{ article.url }}">{{ article.title }}</a>
+</li>
+{% endfor %}
+</ul>
+
+</div>
+
+
 </body>
 </html>

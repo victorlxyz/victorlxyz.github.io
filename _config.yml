@@ -1,0 +1,28 @@
+title: victorlxyz github pages
+
+markdown: kramdown
+highlighter: rouge
+
+collections:
+  articles_en:
+    output: true
+    permalink: /en/articles/:name/
+
+  articles_fr:
+    output: true
+    permalink: /fr/articles/:name/
+
+defaults:
+  - scope:
+      path: "en/_articles"
+      type: articles_en
+    values:
+      layout: article
+      lang: en
+
+  - scope:
+      path: "fr/_articles"
+      type: articles_fr
+    values:
+      layout: article
+      lang: fr
