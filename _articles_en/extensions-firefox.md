@@ -1,3 +1,8 @@
+---
+title: Extensions Firefox
+layout: article
+---
+
 # Essentiels
 
 - uBlock Origin - bloqueur de pubs
